@@ -1,4 +1,9 @@
 # odoo17
+🚀 Odoo 17 will be installed + database created + addons installed automatically! 🚀
+
+
+
+
 
 How to Add More Addons?
 Modify post_install.sh and replace:
