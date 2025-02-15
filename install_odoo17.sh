@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Exit immediately if a command exits with a non-zero status
+# Exit immediately if a command fails
 set -e
 
 echo "Updating system packages..."
@@ -10,7 +10,9 @@ echo "Creating odoo17 system user..."
 sudo useradd -m -d /opt/odoo17 -U -r -s /bin/bash odoo17
 
 echo "Installing required dependencies..."
-sudo apt install -y git python3-pip python3-dev libxml2-dev libxslt1-dev zlib1g-dev libsasl2-dev libldap2-dev build-essential libssl-dev libffi-dev libmysqlclient-dev libjpeg-dev libpq-dev libjpeg8-dev liblcms2-dev libblas-dev libatlas-base-dev
+sudo apt install -y git python3-pip python3-dev libxml2-dev libxslt1-dev zlib1g-dev \
+    libsasl2-dev libldap2-dev build-essential libssl-dev libffi-dev libmysqlclient-dev \
+    libjpeg-dev libpq-dev libjpeg8-dev liblcms2-dev libblas-dev libatlas-base-dev
 sudo apt install -y npm postgresql
 sudo ln -s /usr/bin/nodejs /usr/bin/node || true
 sudo npm install -g less less-plugin-clean-css
@@ -28,6 +30,7 @@ sudo dpkg -i wkhtmltox_0.12.6.1-2.bullseye_amd64.deb || sudo apt install -f -y
 echo "Switching to odoo17 user..."
 sudo -H -u odoo17 bash <<EOF
 cd /opt/odoo17
+
 echo "Cloning Odoo 17..."
 git clone --depth 1 --branch 17.0 https://www.github.com/odoo/odoo odoo17
 
@@ -41,7 +44,15 @@ pip3 install wheel
 pip3 install -r odoo17/requirements.txt
 
 deactivate
+
+echo "Creating custom-addons directory..."
 mkdir -p /opt/odoo17/odoo17/custom-addons
+
+echo "Cloning custom Odoo addon..."
+git config --global --add safe.directory /opt/odoo17/odoo17/custom-addons
+cd /opt/odoo17/odoo17/custom-addons
+git clone https://github.com/onek2900/Apptology_Odoo.git
+
 EOF
 
 echo "Creating Odoo configuration file..."
