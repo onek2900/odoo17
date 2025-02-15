@@ -68,6 +68,8 @@ db_user = odoo17
 db_password = False
 addons_path = /opt/odoo17/odoo17/addons,/opt/odoo17/odoo17/custom-addons
 xmlrpc_port = 8069
+proxy_mode = True
+
 EOL'
 
 echo "Creating Odoo systemd service..."
