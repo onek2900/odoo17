@@ -1,5 +1,12 @@
 # odoo17
 
+How to Add More Addons?
+Modify post_install.sh and replace:
+--init=custom_module
+with:
+--init=module1,module2,module3
+
+
 
 How to Run the Script
 1️⃣ Run it directly from GitHub:
@@ -23,3 +30,7 @@ sudo journalctl -u odoo17 -f
 
 📌 Restart Odoo Service:
 sudo systemctl restart odoo17
+
+
+
+
