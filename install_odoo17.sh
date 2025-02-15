@@ -104,5 +104,10 @@ wget -O /tmp/post_install.sh https://raw.githubusercontent.com/onek2900/odoo17/m
 chmod +x /tmp/post_install.sh
 sudo /tmp/post_install.sh
 
+echo "Running NGINX-installation script..."
+wget https://raw.githubusercontent.com/onek2900/odoo17/main/nginx_setup.sh -O nginx_setup.sh
+chmod +x nginx_setup.sh
+sudo ./nginx_setup.sh
+
 echo "Installation completed successfully!"
 echo "You can check logs using: sudo journalctl -u odoo17"
