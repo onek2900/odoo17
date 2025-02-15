@@ -55,7 +55,15 @@ mkdir -p /opt/odoo17/odoo17/custom-addons
 echo "Cloning custom Odoo addon..."
 git config --global --add safe.directory /opt/odoo17/odoo17/custom-addons
 cd /opt/odoo17/odoo17/custom-addons
-git clone https://github.com/onek2900/Apptology_Odoo.git
+
+# Clone the repository into a temporary folder
+git clone --depth=1 https://github.com/onek2900/Apptology_Odoo.git temp_addon
+
+# Move all files from temp_addon to the current directory
+mv temp_addon/* temp_addon/.* . 2>/dev/null || true
+
+# Remove the temporary folder and Git metadata
+rm -rf temp_addon .git
 
 EOF
 
