@@ -65,7 +65,7 @@ admin_passwd = Basilboss12
 db_host = False
 db_port = False
 db_user = odoo17
-db_password = Basilboss12
+db_password = False
 addons_path = /opt/odoo17/odoo17/addons,/opt/odoo17/odoo17/custom-addons
 xmlrpc_port = 8069
 EOL'
