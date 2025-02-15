@@ -91,8 +91,14 @@ echo "Reloading systemd and starting Odoo service..."
 sudo systemctl daemon-reload
 sudo systemctl enable --now odoo17
 
+echo "Running post-installation script..."
+wget -O /tmp/post_install.sh https://raw.githubusercontent.com/onek2900/odoo17/main/post_install.sh
+chmod +x /tmp/post_install.sh
+sudo /tmp/post_install.sh
+
 echo "Checking Odoo service status..."
 sudo systemctl status odoo17
 
+
+
 echo "Installation completed successfully!"
-echo "You can check logs using: sudo journalctl -u odoo17"
