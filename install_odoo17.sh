@@ -9,6 +9,9 @@ sudo apt-get update && sudo apt-get upgrade -y
 echo "Creating odoo17 system user..."
 sudo useradd -m -d /opt/odoo17 -U -r -s /bin/bash odoo17
 
+echo "Setting password for odoo17..."
+echo "odoo17:odoo17" | sudo chpasswd
+
 echo "Installing required dependencies..."
 sudo apt install -y git python3-pip python3-dev libxml2-dev libxslt1-dev zlib1g-dev \
     libsasl2-dev libldap2-dev build-essential libssl-dev libffi-dev libmysqlclient-dev \
@@ -58,11 +61,11 @@ EOF
 echo "Creating Odoo configuration file..."
 sudo bash -c 'cat <<EOL > /etc/odoo17.conf
 [options]
-admin_passwd = admin_passwd
+admin_passwd = Basilboss12
 db_host = False
 db_port = False
 db_user = odoo17
-db_password = False
+db_password = Basilboss12
 addons_path = /opt/odoo17/odoo17/addons,/opt/odoo17/odoo17/custom-addons
 xmlrpc_port = 8069
 EOL'
@@ -91,14 +94,13 @@ echo "Reloading systemd and starting Odoo service..."
 sudo systemctl daemon-reload
 sudo systemctl enable --now odoo17
 
+echo "Checking Odoo service status..."
+sudo systemctl status odoo17
+
 echo "Running post-installation script..."
 wget -O /tmp/post_install.sh https://raw.githubusercontent.com/onek2900/odoo17/main/post_install.sh
 chmod +x /tmp/post_install.sh
 sudo /tmp/post_install.sh
 
-echo "Checking Odoo service status..."
-sudo systemctl status odoo17
-
-
-
 echo "Installation completed successfully!"
+echo "You can check logs using: sudo journalctl -u odoo17"
