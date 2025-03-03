@@ -15,7 +15,7 @@ sudo rm -f /etc/nginx/sites-enabled/default
 sudo rm -f /etc/nginx/sites-available/default
 
 echo "Creating Nginx configuration for Odoo..."
-sudo bash -c "cat > /etc/nginx/sites-available/odoo.conf" <<EOL
+sudo bash -c "cat > /etc/nginx/sites-available/odoo17.conf" <<EOL
 upstream odooserver {
      server 127.0.0.1:8069;
 }
@@ -53,7 +53,7 @@ server {
 EOL
 
 echo "Enabling Nginx configuration..."
-sudo ln -s /etc/nginx/sites-available/odoo.conf /etc/nginx/sites-enabled/odoo.conf
+sudo ln -s /etc/nginx/sites-available/odoo17.conf /etc/nginx/sites-enabled/odoo17.conf
 
 echo "Checking Nginx configuration..."
 sudo nginx -t
@@ -70,7 +70,7 @@ echo "Obtaining SSL Certificate for $DOMAIN..."
 sudo certbot --nginx --non-interactive --agree-tos --email $EMAIL -d $DOMAIN
 
 echo "Configuring HTTPS redirect..."
-sudo bash -c "cat > /etc/nginx/sites-available/odoo.conf" <<EOL
+sudo bash -c "cat > /etc/nginx/sites-available/odoo17.conf" <<EOL
 upstream odooserver {
      server 127.0.0.1:8069;
 }
