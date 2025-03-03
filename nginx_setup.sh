@@ -10,6 +10,9 @@ read -p "Enter your email for SSL certificate (e.g., admin@example.com): " EMAIL
 echo "Installing Nginx..."
 sudo apt install -y nginx
 
+echo "Installing cron..."
+sudo apt install -y cron
+
 echo "Removing default Nginx configurations..."
 sudo rm -f /etc/nginx/sites-enabled/default
 sudo rm -f /etc/nginx/sites-available/default
