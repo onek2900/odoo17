@@ -26,9 +26,12 @@ sudo -u postgres psql -c "CREATE USER odoo17 WITH CREATEDB PASSWORD 'odoo17';"
 sudo -u postgres psql -c "ALTER USER odoo17 WITH SUPERUSER;"
 
 echo "Downloading wkhtmltopdf..."
-cd /tmp
-sudo wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.bullseye_amd64.deb
-sudo dpkg -i wkhtmltox_0.12.6.1-2.bullseye_amd64.deb || sudo apt install -f -y
+sudo apt-get -y install wkhtmltopdf
+
+#cd /tmp
+#sudo wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.bullseye_amd64.deb
+3sudo dpkg -i wkhtmltox_0.12.6.1-2.bullseye_amd64.deb || sudo apt install -f -y
+
 
 echo "Switching to odoo17 user..."
 sudo -H -u odoo17 bash <<EOF
