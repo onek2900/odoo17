@@ -49,6 +49,8 @@ pip3 install --upgrade pip
 pip3 install wheel
 pip3 install -r odoo17/requirements.txt
 pip3 install psycopg2-binary
+pip3 install pycairo
+pip3 install rlPyCairo
 
 deactivate
 
