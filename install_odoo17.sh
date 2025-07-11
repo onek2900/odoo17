@@ -30,7 +30,7 @@ sudo apt-get -y install wkhtmltopdf
 
 #cd /tmp
 #sudo wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.bullseye_amd64.deb
-3sudo dpkg -i wkhtmltox_0.12.6.1-2.bullseye_amd64.deb || sudo apt install -f -y
+#sudo dpkg -i wkhtmltox_0.12.6.1-2.bullseye_amd64.deb || sudo apt install -f -y
 
 
 echo "Switching to odoo17 user..."
@@ -47,10 +47,11 @@ source odoo17-venv/bin/activate
 echo "Installing Python dependencies..."
 pip3 install --upgrade pip
 pip3 install wheel
-pip3 install -r odoo17/requirements.txt
 pip3 install psycopg2-binary
 pip3 install pycairo
 pip3 install rlPyCairo
+pip3 install -r odoo17/requirements.txt
+
 
 deactivate
 
