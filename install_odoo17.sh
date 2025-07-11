@@ -13,7 +13,7 @@ echo "Setting password for odoo17..."
 echo "odoo17:odoo17" | sudo chpasswd
 
 echo "Installing required dependencies..."
-sudo apt install -y git python3-pip python3-dev  python3.12-venv libxml2-dev libxslt1-dev zlib1g-dev \
+sudo apt install -y git python3-pip python3-dev libxml2-dev libxslt1-dev zlib1g-dev \
     libsasl2-dev libldap2-dev build-essential libssl-dev libffi-dev libmysqlclient-dev \
     libjpeg-dev libpq-dev libjpeg8-dev liblcms2-dev libblas-dev libatlas-base-dev
 sudo apt install -y npm postgresql
