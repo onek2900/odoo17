@@ -84,6 +84,7 @@ db_password = False
 addons_path = /opt/odoo17/odoo17/addons,/opt/odoo17/odoo17/custom-addons
 xmlrpc_port = 8069
 proxy_mode = True
+pidfile = /run/odoo17/odoo17.pid
 
 EOL'
 
@@ -111,7 +112,6 @@ echo "Reloading systemd and starting Odoo service..."
 sudo systemctl daemon-reload
 sudo systemctl enable --now odoo17
 
-
 echo "Running post-installation script..."
 wget -O /tmp/post_install.sh https://raw.githubusercontent.com/onek2900/odoo17/main/post_install.sh
 chmod +x /tmp/post_install.sh
@@ -121,6 +121,12 @@ echo "Running NGINX-installation script..."
 wget https://raw.githubusercontent.com/onek2900/odoo17/main/nginx_setup.sh -O nginx_setup.sh
 chmod +x nginx_setup.sh
 sudo ./nginx_setup.sh
+
+echo "Running Monit-installation script..."
+wget https://raw.githubusercontent.com/onek2900/odoo17/main/install_monit_odoo17.sh -O install_monit_odoo17.sh
+chmod +x install_monit_odoo17.sh
+sudo ./install_monit_odoo17.sh
+
 
 echo "Installation completed successfully!"
 echo "You can check logs using: sudo journalctl -u odoo17"
