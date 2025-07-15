@@ -8,7 +8,7 @@ MONIT_MAIN_CONF="/etc/monit/monitrc"
 
 # 1. Create Monit check for Odoo17
 sudo tee "$ODOO_MONIT_PATH" > /dev/null << 'EOF'
-check process odoo17 with pidfile /run/odoo17/odoo.pid
+check process odoo17 with pidfile /run/odoo17/odoo17.pid
   start program = "/bin/systemctl start odoo17"
   stop program  = "/bin/systemctl stop odoo17"
   if failed port 8069 protocol http
