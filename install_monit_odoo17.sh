@@ -36,7 +36,7 @@ EOF
 # 2. Enable Monit Web UI on port 2812 if not already set
 echo "🔧 Ensuring Monit web interface is enabled on port 2812..."
 
-if ! grep -q "set httpd port 2812" "$MONIT_MAIN_CONF"; then
+if ! sudo grep -q "set httpd port 2812" "$MONIT_MAIN_CONF"; then
     sudo tee -a "$MONIT_MAIN_CONF" > /dev/null <<EOF
 
 set httpd port 2812 and
