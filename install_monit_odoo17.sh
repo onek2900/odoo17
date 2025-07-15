@@ -36,17 +36,14 @@ EOF
 # 2. Enable Monit Web UI on port 2812 if not already set
 echo "🔧 Ensuring Monit web interface is enabled on port 2812..."
 
-if ! sudo grep -q "set httpd port 2812" /etc/monit/monitrc; then
-    sudo tee -a "/etc/monit/monitrc" > /dev/null <<EOF
+sudo tee -a "/etc/monit/monitrc" > /dev/null <<EOF
 
 set httpd port 2812 and
     use address localhost
     allow localhost
     allow admin:"1212Apptology"
 EOF
-else
-    echo "✅ Web UI block already exists in monitrc — skipping append."
-fi
+
 
 # 3. Secure the monitrc file
 echo "🔒 Setting secure permissions on monitrc..."
