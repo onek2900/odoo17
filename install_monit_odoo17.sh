@@ -55,3 +55,4 @@ sudo chmod 600 /etc/monit/monitrc
 # 4. Reload Monit to apply changes
 echo "🔄 Reloading Monit..."
 sudo monit reload
+sudo monit start all
