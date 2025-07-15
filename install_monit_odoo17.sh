@@ -3,7 +3,7 @@ set -e
 
 echo "🔧 Creating Monit config for Odoo17..."
 sudo apt-get install -y monit
-MONIT_MAIN_CONF="/etc/monit/monitrc"
+
 
 # 1. 
 # Create Monit check for Odoo17
@@ -36,8 +36,8 @@ EOF
 # 2. Enable Monit Web UI on port 2812 if not already set
 echo "🔧 Ensuring Monit web interface is enabled on port 2812..."
 
-if ! sudo grep -q "set httpd port 2812" "$MONIT_MAIN_CONF"; then
-    sudo tee -a "$MONIT_MAIN_CONF" > /dev/null <<EOF
+if ! sudo grep -q "set httpd port 2812" /etc/monit/monitrc; then
+    sudo tee -a "/etc/monit/monitrc" > /dev/null <<EOF
 
 set httpd port 2812 and
     use address localhost
@@ -50,7 +50,7 @@ fi
 
 # 3. Secure the monitrc file
 echo "🔒 Setting secure permissions on monitrc..."
-sudo chmod 600 "$MONIT_MAIN_CONF"
+sudo chmod 600 /etc/monit/monitrc
 
 # 4. Reload Monit to apply changes
 echo "🔄 Reloading Monit..."
