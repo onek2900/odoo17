@@ -2,7 +2,7 @@
 set -e
 
 echo "🔧 Creating Monit config for Odoo17..."
-
+sudo apt-get install -y monit
 MONIT_MAIN_CONF="/etc/monit/monitrc"
 
 # 1. 
