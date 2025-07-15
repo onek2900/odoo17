@@ -85,8 +85,18 @@ addons_path = /opt/odoo17/odoo17/addons,/opt/odoo17/odoo17/custom-addons
 xmlrpc_port = 8069
 proxy_mode = True
 pidfile = /run/odoo17/odoo17.pid
+#logfile = /var/log/odoo17/odoo17.log
+#log_handler = DEBUG
 
 EOL'
+
+#create logfile location
+sudo mkdir -p /var/log/odoo17
+sudo chown odoo17:odoo17 /var/log/odoo17
+
+#create pidfile location
+sudo mkdir -p /run/odoo17
+sudo chown odoo17:odoo17 /run/odoo17
 
 echo "Creating Odoo systemd service..."
 sudo bash -c 'cat <<EOL > /etc/systemd/system/odoo17.service
