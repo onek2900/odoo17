@@ -15,7 +15,11 @@ echo "odoo17:odoo17" | sudo chpasswd
 echo "Installing required dependencies..."
 sudo apt install -y git python3-pip python3-dev python3-venv libxml2-dev libxslt1-dev zlib1g-dev \
     libsasl2-dev libldap2-dev build-essential libssl-dev libffi-dev libmysqlclient-dev \
-    libjpeg-dev libpq-dev libjpeg8-dev liblcms2-dev libblas-dev libatlas-base-dev pkg-config libcairo2-dev libgirepository1.0-dev python3-dev build-essential
+    libjpeg-dev libpq-dev libjpeg8-dev liblcms2-dev libblas-dev libatlas-base-dev pkg-config libcairo2-dev libgirepository1.0-dev python3-dev build-essential \
+    xfonts-75dpi fontconfig libxrender1 libjpeg-turbo8
+
+
+
 sudo apt install -y npm postgresql
 sudo ln -s /usr/bin/nodejs /usr/bin/node || true
 sudo npm install -g less less-plugin-clean-css
@@ -26,11 +30,12 @@ sudo -u postgres psql -c "CREATE USER odoo17 WITH CREATEDB PASSWORD 'odoo17';"
 sudo -u postgres psql -c "ALTER USER odoo17 WITH SUPERUSER;"
 
 echo "Downloading wkhtmltopdf..."
-sudo apt-get -y install wkhtmltopdf
+wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
+sudo dpkg -i wkhtmltox_0.12.6-1.focal_amd64.deb
 
 #cd /tmp
-#sudo wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.bullseye_amd64.deb
-#sudo dpkg -i wkhtmltox_0.12.6.1-2.bullseye_amd64.deb || sudo apt install -f -y
+#sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.focal_amd64.deb
+#sudo dpkg -i wkhtmltox_0.12.5-1.focal_amd64.deb || sudo apt install -f -y
 
 
 echo "Switching to odoo17 user..."
