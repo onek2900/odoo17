@@ -29,13 +29,13 @@ echo "Configuring PostgreSQL..."
 sudo -u postgres psql -c "CREATE USER odoo17 WITH CREATEDB PASSWORD 'odoo17';"
 sudo -u postgres psql -c "ALTER USER odoo17 WITH SUPERUSER;"
 
-echo "Downloading wkhtmltopdf..."
-wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
-sudo dpkg -i wkhtmltox_0.12.6-1.focal_amd64.deb
+# echo "Downloading wkhtmltopdf..."
+# wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
+# sudo dpkg -i wkhtmltox_0.12.6-1.focal_amd64.deb
 
 #cd /tmp
-#sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.focal_amd64.deb
-#sudo dpkg -i wkhtmltox_0.12.5-1.focal_amd64.deb || sudo apt install -f -y
+# sudo wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.focal_amd64.deb
+# sudo dpkg -i wkhtmltox_0.12.5-1.focal_amd64.deb || sudo apt install -f -y
 
 
 echo "Switching to odoo17 user..."
