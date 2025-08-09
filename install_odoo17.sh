@@ -95,7 +95,8 @@ xmlrpc_port = 8069
 proxy_mode = True
 pidfile = /run/odoo17/odoo17.pid
 #logfile = /var/log/odoo17/odoo17.log
-#log_handler = DEBUG
+#loglevel = debug
+
 
 EOL'
 
