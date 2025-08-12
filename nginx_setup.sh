@@ -92,7 +92,8 @@ server {
      listen 443 ssl;
 
      server_name www.$DOMAIN;
-
+     client_max_body_size 200M;        # allow bigger uploads
+     client_body_timeout 120s;         # optional
      ssl_certificate /etc/letsencrypt/live/$DOMAIN/fullchain.pem;
      ssl_certificate_key /etc/letsencrypt/live/$DOMAIN/privkey.pem;
 
@@ -104,7 +105,8 @@ server {
      listen 443 ssl http2;
 
      server_name $DOMAIN;
-
+     client_max_body_size 200M;        # allow bigger uploads
+     client_body_timeout 120s;         # optional
      ssl_certificate /etc/letsencrypt/live/$DOMAIN/fullchain.pem;
      ssl_certificate_key /etc/letsencrypt/live/$DOMAIN/privkey.pem;
 
