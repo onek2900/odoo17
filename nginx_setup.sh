@@ -146,7 +146,7 @@ sudo systemctl restart nginx
 
 # Set up automatic SSL renewal
 echo "Setting up auto-renewal for SSL certificates..."
-sudo crontab -e | { cat; echo "0 0,12 * * * certbot renew >/dev/null 2>&1"; } | sudo crontab -
+(sudo crontab -l 2>/dev/null; echo "0 0,12 * * * certbot renew >/dev/null 2>&1") | sudo crontab -
 
 echo "Nginx setup completed successfully!"
 echo "Your Odoo is now accessible at https://$DOMAIN 🚀"
