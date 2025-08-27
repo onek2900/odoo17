@@ -100,10 +100,12 @@ EOL'
 #create logfile location
 sudo mkdir -p /var/log/odoo17
 sudo chown odoo17:odoo17 /var/log/odoo17
+sudo chmod 777 /var/log/odoo17
 
 #create pidfile location
 sudo mkdir -p /run/odoo17
-sudo chown -R 777 /run/odoo17
+sudo chown odoo17:odoo17 /run/odoo17
+sudo chmod 777 /run/odoo17
 
 echo "Creating Odoo systemd service..."
 sudo bash -c 'cat <<EOL > /etc/systemd/system/odoo17.service
