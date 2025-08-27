@@ -18,10 +18,18 @@ sudo apt install -y git python3-pip python3-dev python3-venv libxml2-dev libxslt
     libjpeg-dev libpq-dev libjpeg8-dev liblcms2-dev libblas-dev libatlas-base-dev pkg-config libcairo2-dev libgirepository1.0-dev python3-dev build-essential \
     xfonts-75dpi fontconfig libxrender1 libjpeg-turbo8
 
+sudo apt-get install xfonts-base
+wget http://launchpadlibrarian.net/611216907/libssl1.1_1.1.1f-1ubuntu2.16_amd64.deb
+sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.16_amd64.deb
+wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.focal_amd64.deb
+sudo dpkg -i wkhtmltox_0.12.5-1.focal_amd64.deb
 
 
 sudo apt install -y npm postgresql
+sudo rm -f /usr/bin/node /usr/bin/nodejs
 sudo ln -s /usr/bin/nodejs /usr/bin/node || true
+sudo apt-get install -y --reinstall nodejs npm
+
 sudo npm install -g less less-plugin-clean-css
 sudo apt-get install -y node-less
 
