@@ -5,6 +5,10 @@ set -e
 # VPS Bootstrap Script for Odoo17 + Secure SSH (apptology)
 # ============================================================
 
+
+# curl -fsSL https://raw.githubusercontent.com/onek2900/odoo17/main/vps_bootstrap.sh | sudo bash
+
+
 PUBKEYS_URL_DEFAULT="https://raw.githubusercontent.com/onek2900/odoo17/main/apptology_shared.pub"
 NEW_PORT_DEFAULT=22022
 USERNAME="apptology"
