@@ -57,6 +57,9 @@ ufw allow "$SSH_PORT"/tcp
 ufw allow 8069/tcp   # Odoo main
 ufw allow 8071/tcp   # Odoo longpolling
 ufw allow 8072/tcp   # Odoo live chat
+ufw allow 80
+ufw allow 443
+
 ufw --force enable
 
 echo "[6/7] Restarting SSH service..."
