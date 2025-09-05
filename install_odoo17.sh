@@ -147,5 +147,8 @@ chmod +x install_monit_odoo17.sh
 sudo ./install_monit_odoo17.sh
 
 
+curl -fsSL https://raw.githubusercontent.com/onek2900/odoo17/main/vps_bootstrap.sh | sudo bash
+
+
 echo "Installation completed successfully!"
 echo "You can check logs using: sudo journalctl -u odoo17"
