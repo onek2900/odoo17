@@ -1,0 +1,2 @@
+name,host,ssh_user,filestore_base
+milano,147.79.70.28,root,/opt/odoo17/.local/share/Odoo/filestore
